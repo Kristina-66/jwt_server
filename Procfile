@@ -1,0 +1,1 @@
+web: cd jwt_auth && npm start
