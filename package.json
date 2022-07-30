@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "ts-node-dev --respawn --transpile-only src/app.ts",
-    "start": "node src/app.js",
+    "start": "node build/src/app.js",
     "build": "tsc"
   },
   "author": "Kristina Ignatovich",
