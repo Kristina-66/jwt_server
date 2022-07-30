@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import config from 'config';
 const dbUrl = `mongodb+srv://${config.get('dbName')}:${config.get(
   'dbPass'
-)}@cluster0.nxpsgq6.mongodb.net/?retryWrites=true&w=majority`;
+)}@${config.get('dbCluster')}`;
 
 const connectDB = async () => {
   try {
