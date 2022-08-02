@@ -13,7 +13,6 @@ const accessTokenCookieOptions: CookieOptions = {
   ),
   maxAge: config.get<number>('accessTokenExpiresIn') * 60 * 1000,
   httpOnly: true,
-  sameSite: 'lax',
 };
 
 // Only set secure to true in production
