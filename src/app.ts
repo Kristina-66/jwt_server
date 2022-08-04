@@ -15,12 +15,7 @@ app.use(cookieParser());
 
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
-app.use(
-  cors({
-    origin: config.get<string>('origin'),
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.use('/api/users', userRouter);
 app.use('/api/auth', authRouter);
