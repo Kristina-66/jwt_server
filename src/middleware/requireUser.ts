@@ -12,6 +12,10 @@ export const requireUser = (
       return next(new AppError(`Invalid token or session has expired`, 401));
     }
 
+    if (user.status === "block") {
+      return next(new AppError('You are BLOCKED', 401));
+    }
+
     next();
   } catch (err: any) {
     next(err);

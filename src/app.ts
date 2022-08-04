@@ -28,7 +28,7 @@ app.use('/api/auth', authRouter);
 app.get('/healthChecker', (req: Request, res: Response, next: NextFunction) => {
   res.status(200).json({
     status: 'success',
-    message: 'Welcome to CodevoWeb😂😂👈👈',
+    message: 'Made by Kristina Ignatovich',
   });
 });
 

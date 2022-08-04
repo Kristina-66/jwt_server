@@ -65,6 +65,11 @@ export const loginHandler = async (
     ) {
       return next(new AppError('Invalid email or password', 401));
     }
+
+    if (user.status === "block") {
+      return next(new AppError('You are BLOCKED', 401));
+    }
+
     // Set login time
     findByIdAndUpdate(user.id);
     // Create an Access Token
@@ -82,6 +87,24 @@ export const loginHandler = async (
       status: 'success',
       accessToken,
     });
+  } catch (err: any) {
+    next(err);
+  }
+};
+
+const logout = (res: Response) => {
+  res.cookie('access_token', '', { maxAge: 1 });
+  res.cookie('logged_in', '', { maxAge: 1 });
+};
+
+export const logoutHandler = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    logout(res);
+    res.status(200).json({ status: 'success' });
   } catch (err: any) {
     next(err);
   }

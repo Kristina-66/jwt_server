@@ -16,8 +16,8 @@ export const deserializeUser = async (
       req.headers.authorization.startsWith('Bearer')
     ) {
       access_token = req.headers.authorization.split(' ')[1];
-    } else if (req.cookies.access_token) {
-      access_token = req.cookies.access_token;
+    } else if (req.cookies.accessToken) {
+      access_token = req.cookies.accessToken;
     }
 
     if (!access_token) {
