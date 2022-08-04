@@ -15,7 +15,7 @@ app.use(cookieParser());
 
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
-app.use(cors());
+app.use(cors({credentials: true, origin: 'https://dainty-piroshki-0f7e17.netlify.app/'}));
 
 app.use('/api/users', userRouter);
 app.use('/api/auth', authRouter);
